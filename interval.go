@@ -293,7 +293,7 @@ func (i *TimeInterval) Contains(interval *TimeInterval) bool {
 	if interval == nil {
 		return false
 	}
-	if i.startTime.Before(*interval.startTime) && i.endTime.After(*interval.endTime) {
+	if (i.startTime.Before(*interval.startTime) || i.startTime.Equal(*interval.startTime)) && (i.endTime.After(*interval.endTime) || i.endTime.Equal(*interval.endTime)) {
 		return true
 	}
 	return false
@@ -334,7 +334,7 @@ func (i *TimeInterval) During(interval *TimeInterval) bool {
 	if interval == nil {
 		return false
 	}
-	if i.startTime.After(*interval.startTime) && i.endTime.Before(*interval.endTime) {
+	if (i.startTime.After(*interval.startTime) || i.startTime.Equal(*interval.startTime)) && (i.endTime.Before(*interval.endTime) || i.endTime.Equal(*interval.endTime)) {
 		return true
 	}
 	return false
