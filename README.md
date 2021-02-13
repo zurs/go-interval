@@ -1,5 +1,10 @@
 # go-interval
 
+## Changes since forked
+
+The Contains and During functions did not check if the two intervals start-times were equal. This caused some problems when trying to use the library.
+I do not know if this behavior is correct according to Allen's Interval Algebra, but it makes my life easier.
+
 **BE WARNED:**
 The library is ready for production if I tag the library with 1.0.0.
 
@@ -27,20 +32,20 @@ between the intervals, and more.
 
 ``` bash
 
-go get github.com/retailify/go-interval
+go get github.com/zurs/go-interval
 ```
 
 ### glide
 
 ``` bash
 
-glide get github.com/retailify/go-interval
+glide get github.com/zurs/go-interval
 ```
 
 ## Usage
 
 ``` go
-import "github.com/retailify/go-interval"
+import "github.com/zurs/go-interval"
 ```
 
 &copy; 2018 by [Retailify GmbH](https://retailify.de)
