@@ -140,6 +140,11 @@ func (i *TimeInterval) End() *time.Time {
 	return i.endTime
 }
 
+func (i *TimeInterval) Add(d time.Duration) {
+	*i.startTime = i.startTime.Add(d)
+	*i.endTime = i.endTime.Add(d)
+}
+
 // Duration returns the time.Duration of the interval
 func (i *TimeInterval) Duration() time.Duration {
 	return i.endTime.Sub(*i.startTime)
