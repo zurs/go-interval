@@ -270,8 +270,7 @@ func (i *TimeInterval) Overlaps(interval *TimeInterval) bool {
 		return false
 	}
 
-	if i.startTime.Before(*interval.startTime) &&
-		i.endTime.Before(*interval.endTime) {
+	if (i.startTime.Before(*interval.startTime) || i.startTime.Before(*interval.endTime)) && (i.endTime.After(*interval.startTime)) {
 		return true
 	}
 
